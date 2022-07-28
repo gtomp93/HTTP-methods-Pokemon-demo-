@@ -1,3 +1,5 @@
+// Testing coflicts
+Hello world
 const ginaTest = "lalalal";
 import React from "react";
 
