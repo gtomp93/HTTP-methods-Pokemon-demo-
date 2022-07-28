@@ -1,10 +1,10 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-import { useState } from 'react';
-import { Pokemon } from './Pokemon';
-import { AddPokemon } from './AddPokemon';
-import { DeletePokemon } from './DeletePokemon';
-import { UpdatePokemon } from './UpdatePokemon';
+import { useState } from "react";
+import { Pokemon } from "./Pokemon";
+import { AddPokemon } from "./AddPokemon";
+import { DeletePokemon } from "./DeletePokemon";
+import { UpdatePokemon } from "./UpdatePokemon";
 
 export const App = () => {
   const [pokedex, setPokedex] = useState([]);
@@ -12,7 +12,7 @@ export const App = () => {
   const handleClick = (e) => {
     e.preventDefault();
     ///fetch to get data
-    fetch('/api/')
+    fetch("/api/")
       .then((res) => res.json())
       .then((banana) => {
         // console.log('banana', banana);
@@ -55,7 +55,7 @@ const StyledBtn = styled.button`
 `;
 
 const PageWrapper = styled.div`
-  padding: 20px 50px;
+  padding: 20px 100px;
   margin-top: 70px;
 `;
 

@@ -1,21 +1,23 @@
-import { useState } from 'react';
-import styled from 'styled-components';
+import { useState } from "react";
+import styled from "styled-components";
 
 export const DeletePokemon = () => {
-  const [name, setName] = useState('');
+  const [name, setName] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     fetch(`/api/delete/${name}`, {
-      method: 'DELETE',
+      method: "DELETE",
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.message === 'success') {
-          window.alert(`${name} is removed from pokedex`);
+        if (data.message === "success") {
+          window.alert(
+            `${name} is removed from pokedex. Click red button to see new Pokedex.`
+          );
         }
       });
-    setName('');
+    setName("");
   };
 
   return (

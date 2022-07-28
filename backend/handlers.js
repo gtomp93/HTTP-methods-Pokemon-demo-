@@ -1,8 +1,8 @@
-const pokedex = require('./pokedex');
+const pokedex = require("./pokedex");
 
 const getPokedex = (req, res) => {
   //   console.log('pokeddex', pokedex);
-  res.status(200).json({ status: 200, data: pokedex, message: 'success' });
+  res.status(200).json({ status: 200, data: pokedex, message: "success" });
 };
 
 const addPokemon = (req, res) => {
@@ -13,13 +13,13 @@ const addPokemon = (req, res) => {
   const addedIdPokemon = {
     ...newPokemon,
     id: pokedex.pokedex.length + 1,
-    type: newPokemon.type.split(' '),
+    type: newPokemon.type.split(" "),
   };
-  console.log('addedId', addedIdPokemon);
+  console.log("addedId", addedIdPokemon);
   //add to pokedex
   pokedex.pokedex.unshift(addedIdPokemon);
   //send res back
-  res.status(200).json({ status: 200, data: pokedex, message: 'success' });
+  res.status(200).json({ status: 200, data: pokedex, message: "success" });
 };
 
 const deletePokemon = (req, res) => {
@@ -32,26 +32,31 @@ const deletePokemon = (req, res) => {
   //set the pokedex as the new pokedex
   pokedex.pokedex = updatedPokedex;
   //send response back
-  res.status(200).json({ status: 200, data: pokedex, message: 'success' });
+  res.status(200).json({ status: 200, data: pokedex, message: "success" });
 };
 
 const updatePokemon = (req, res) => {
   const name = req.params.pokemonName;
-  // console.log('name', name);
+  console.log("name", name);
   //make the type into an array
   const newType = req.body.type;
-  // console.log('typeArr', req.body.type);
-  const typeArr = newType.split(' ');
-  //find the pokemon in pokedex
-  pokedex.pokedex.forEach((pokemon) => {
+  console.log("typeArr", req.body.type);
+  const typeArr = newType.split(" ");
+  //return a new pokedex that contains the updated pokemon type
+  const updatedPokedex = pokedex.pokedex.map((pokemon) => {
     if (pokemon.name === name) {
       //update the pokemon
-      pokemon.type = typeArr;
+      return { ...pokemon, type: typeArr };
+    } else {
+      return pokemon;
     }
   });
+  //set the pokedex as the new pokedex
+  pokedex.pokedex = updatedPokedex;
+  //send response back
   res
     .status(200)
-    .json({ status: 200, data: pokedex.pokedex, message: 'success' });
+    .json({ status: 200, data: pokedex.pokedex, message: "success" });
 };
 
 module.exports = { getPokedex, addPokemon, deletePokemon, updatePokemon };

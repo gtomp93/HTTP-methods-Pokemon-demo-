@@ -1,25 +1,25 @@
-import { useState } from 'react';
-import styled from 'styled-components';
+import { useState } from "react";
+import styled from "styled-components";
 
 export const UpdatePokemon = () => {
-  const initialValue = { name: '', type: '' };
+  const initialValue = { name: "", type: "" };
   const [value, setValue] = useState(initialValue);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('value', value);
+    // console.log("value", value);
     fetch(`/api/update/${value.name}`, {
-      method: 'PATCH',
+      method: "PATCH",
       body: JSON.stringify(value),
       headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
+        Accept: "application/json",
+        "Content-Type": "application/json",
       },
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log('update', data.message);
-        if (data.message === 'success') {
+        // console.log("update", data.message);
+        if (data.message === "success") {
           window.alert(`${value.name} updated in Pokedex!`);
         }
       });
@@ -50,7 +50,7 @@ export const UpdatePokemon = () => {
             onChange={(e) => setValue({ ...value, type: e.target.value })}
           />
         </Wrapper>
-        <StyledBtn type="submit">Add New Pokemon</StyledBtn>
+        <StyledBtn type="submit">Update Pokemon</StyledBtn>
       </StyledForm>
     </Container>
   );
