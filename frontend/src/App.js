@@ -5,6 +5,7 @@ import { Pokemon } from "./Pokemon";
 import { AddPokemon } from "./AddPokemon";
 import { DeletePokemon } from "./DeletePokemon";
 import { UpdatePokemon } from "./UpdatePokemon";
+import { Header } from "./Header";
 
 export const App = () => {
   const [pokedex, setPokedex] = useState([]);
@@ -27,21 +28,24 @@ export const App = () => {
   }
 
   return (
-    <PageWrapper>
-      <StyledBtn onClick={handleClick}>View Pokedex</StyledBtn>
-      <ActionWrapper>
-        <AddPokemon />
-        <DeletePokemon />
-        <UpdatePokemon />
-      </ActionWrapper>
-      {pokedex.length > 0 && (
-        <div>
-          {pokedex.map((pokemon) => {
-            return <Pokemon key={pokemon.id} pokemon={pokemon} />;
-          })}
-        </div>
-      )}
-    </PageWrapper>
+    <>
+      <Header />
+      <PageWrapper>
+        <StyledBtn onClick={handleClick}>View Pokedex</StyledBtn>
+        <ActionWrapper>
+          <AddPokemon />
+          <DeletePokemon />
+          <UpdatePokemon />
+        </ActionWrapper>
+        {pokedex.length > 0 && (
+          <div>
+            {pokedex.map((pokemon) => {
+              return <Pokemon key={pokemon.id} pokemon={pokemon} />;
+            })}
+          </div>
+        )}
+      </PageWrapper>
+    </>
   );
 };
 
@@ -56,7 +60,6 @@ const StyledBtn = styled.button`
 
 const PageWrapper = styled.div`
   padding: 20px 100px;
-  margin-top: 70px;
 `;
 
 const ActionWrapper = styled.div`
