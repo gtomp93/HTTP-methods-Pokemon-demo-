@@ -39,7 +39,7 @@ const BallContainer = styled.div`
   width: 98vw;
   position: absolute;
   padding-top: 8px;
-  top: 8px;
+  top: 5px;
   z-index: 10;
   display: flex;
   justify-content: center;
@@ -56,6 +56,7 @@ const RoundBall = styled.div`
 
 const TextContainer = styled.div`
   padding-left: 5px;
+  height: 50px; ;
 `;
 
 const StyledH1 = styled.h1`

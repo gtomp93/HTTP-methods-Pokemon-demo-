@@ -37,13 +37,16 @@ export const App = () => {
           <DeletePokemon />
           <UpdatePokemon />
         </ActionWrapper>
-        {pokedex.length > 0 && (
-          <div>
-            {pokedex.map((pokemon) => {
-              return <Pokemon key={pokemon.id} pokemon={pokemon} />;
-            })}
-          </div>
-        )}
+        <Pokedex>
+          <StyledH2>Your Pokedex</StyledH2>
+          {pokedex.length > 0 && (
+            <>
+              {pokedex.map((pokemon) => {
+                return <Pokemon key={pokemon.id} pokemon={pokemon} />;
+              })}
+            </>
+          )}
+        </Pokedex>
       </PageWrapper>
     </>
   );
@@ -64,7 +67,20 @@ const PageWrapper = styled.div`
 
 const ActionWrapper = styled.div`
   display: flex;
+  flex-wrap: wrap;
   margin: 20px;
   padding-top: 30px;
   border-top: 2px solid #3c5aa6;
+`;
+
+const Pokedex = styled.div`
+  margin-top: 20px;
+  background-color: red;
+  border-radius: 5px;
+  padding: 40px;
+  border: 1px solid black;
+`;
+
+const StyledH2 = styled.h2`
+  margin-top: 0;
 `;

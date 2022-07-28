@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Pokemon = ({ pokemon }) => {
   return (
@@ -28,7 +28,8 @@ const Container = styled.div`
   border: 2px solid #3c5aa6;
   padding: 20px;
   background-color: #ffcb05;
-  opacity: 0.8;
+  border-radius: 5px;
+  margin: 5px 0;
 `;
 const Wrapper = styled.div`
   display: flex;
