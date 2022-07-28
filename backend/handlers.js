@@ -7,7 +7,7 @@ const getPokedex = (req, res) => {
 
 const addPokemon = (req, res) => {
   const newPokemon = req.body;
-  console.log(newPokemon);
+  // console.log(newPokemon);
 
   //add id to newPokemon
   const addedIdPokemon = {
@@ -15,7 +15,7 @@ const addPokemon = (req, res) => {
     id: pokedex.pokedex.length + 1,
     type: newPokemon.type.split(" "),
   };
-  console.log("addedId", addedIdPokemon);
+  // console.log("addedId", addedIdPokemon);
   //add to pokedex
   pokedex.pokedex.unshift(addedIdPokemon);
   //send res back
@@ -37,10 +37,10 @@ const deletePokemon = (req, res) => {
 
 const updatePokemon = (req, res) => {
   const name = req.params.pokemonName;
-  console.log("name", name);
+  // console.log("name", name);
   //make the type into an array
   const newType = req.body.type;
-  console.log("typeArr", req.body.type);
+  // console.log("typeArr", req.body.type);
   const typeArr = newType.split(" ");
   //return a new pokedex that contains the updated pokemon type
   const updatedPokedex = pokedex.pokedex.map((pokemon) => {
