@@ -1,4 +1,6 @@
 // Testing coflicts
+const newConflict = "muahahahah";
+
 Hello world
 const ginaTest = "lalalal";
 import React from "react";
